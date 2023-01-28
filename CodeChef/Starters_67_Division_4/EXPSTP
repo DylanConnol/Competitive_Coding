@@ -1,0 +1,21 @@
+#Problem: https://www.codechef.com/problems/EXPSTP
+
+#Solution:
+
+for _ in range(int(input())):
+    N, x1, y1, x2, y2 = list(map(int, input().split()))
+    raw_distance = abs(x2 - x1) + abs(y2 - y1)
+    get_off_grid = min(
+        abs(x1),
+        abs(y1),
+        abs(N + 1 - x1),
+        abs(N + 1 - y1)
+        )
+    from_grid = min(
+        abs(N + 1 - x2),
+        abs(N + 1 - y2),
+        abs(x2),
+        abs(y2)
+        )
+    fancy_distance = get_off_grid + from_grid
+    print(min(fancy_distance, raw_distance))
