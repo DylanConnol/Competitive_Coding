@@ -1,0 +1,27 @@
+#Problem: https://www.codechef.com/problems/BORSTR
+
+#Solution: 
+import bisect
+for _ in range(int(input())):
+    N = int(input())
+    S = input()
+    d = {}
+    ans = []
+    i = 0
+    while i < len(S):
+        j = i
+        while j < len(S) and S[j] == S[i]:
+            j += 1
+        for z in range(max(1, j - i - 1), j - i + 1):
+            try:
+                d[S[i]*z] += j - i + 1 - z
+                bisect.insort(ans, z)
+            except:
+                d[S[i] * z] = j - i + 1 - z
+                if d[S[i] * z] > 1:
+                    bisect.insort(ans, z)
+        i += j - i
+    if ans == []:
+        print(0)
+    else:
+        print(ans[-1])
