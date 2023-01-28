@@ -1,0 +1,21 @@
+#Problem: https://www.codechef.com/problems/MINDIST1
+
+#Solution:
+for _ in range(int(input())):
+    N = int(input())
+    A = list(input())
+    if N == 2: print(1); continue
+    even = False
+    i = 0
+    while i < N:
+        if A[i] == '0':
+            j = i
+            while j < N and A[j] == A[i]:
+                j += 1
+            if (j - i) % 2 == 0 and j != N and i != 0:
+                even = True
+            i = j
+        elif i < (N-1) and A[i] == A[i + 1]: even = True; break
+        else: i += 1
+    if even: print(1)
+    else: print(2)
