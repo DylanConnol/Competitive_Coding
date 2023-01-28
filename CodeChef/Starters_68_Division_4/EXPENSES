@@ -1,0 +1,6 @@
+#Problem: https://www.codechef.com/problems/EXPENSES
+
+#Solution: 
+for _ in range(int(input())):
+    N, X = list(map(int, input().split()))
+    print(2**(X-N))
