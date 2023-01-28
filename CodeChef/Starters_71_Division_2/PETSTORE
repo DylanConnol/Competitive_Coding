@@ -1,0 +1,17 @@
+#Problem: https://www.codechef.com/problems/PETSTORE
+
+#Solution: 
+for _ in range(int(input())):
+    N = int(input())
+    A = list(map(int, input().split()))
+    if N % 2 == 1:
+        print("NO"); continue
+    z = [0]*101
+    for i in range(N):
+        z[A[i]] += 1
+    for i in range(len(z)):
+        if z[i] % 2 == 1:
+            print("No")
+            break
+    else:
+        print("YES")
