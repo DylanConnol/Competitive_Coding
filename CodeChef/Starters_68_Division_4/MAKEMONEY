@@ -1,0 +1,13 @@
+#Problem: https://www.codechef.com/problems/MAKEMONEY
+
+#Solution:
+for _ in range(int(input())):
+    N, X, C = list(map(int, input().split()))
+    A = list(map(int, input().split()))
+    sum_ = 0
+    for i in range(N):
+        if (X - A[i]) > C:
+            A[i] = X
+            sum_ -= C
+        sum_ += A[i]
+    print(sum_)
