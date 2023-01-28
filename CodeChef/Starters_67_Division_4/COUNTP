@@ -1,0 +1,20 @@
+#Problem: https://www.codechef.com/problems/COUNTP?tab=submissions
+
+#Solution: 
+
+for _ in range(int(input())):
+    n = int(input())
+    list_ = list(map(int, input().split()))
+    num_even = 0
+    num_odd = 0
+    for i in list_:
+        if i % 2 == 0:
+            num_even += 1
+        else:
+            num_odd += 1
+    if num_odd == 0:
+        print("NO")
+    elif (num_odd) % 2 == 0:
+        print("YES")
+    else:
+        print("NO")
