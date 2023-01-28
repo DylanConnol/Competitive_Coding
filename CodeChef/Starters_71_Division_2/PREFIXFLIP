@@ -1,0 +1,32 @@
+#Problem: https://www.codechef.com/problems/PREFIXFLIP
+
+#Solution: 
+
+for _ in range(int(input())):
+    N, K = list(map(int, input().split()))
+    S = input()
+    blocks = []
+    curval = 0
+    for i in range(N):
+        if i != (N-1) and S[i] == S[i + 1]:
+            curval += 1
+        else:
+            curval += 1
+            blocks.append(curval)
+            curval = 0
+    numops = 0; sm = 0; mod = int(S[0]); j = 0; ans = float('inf')
+    for i in range(len(blocks)):
+        sm += blocks[i]
+        if blocks[i] >= K:
+            if i % 2 != mod:
+                ans = 0
+            else: ans = min(ans, 1)
+        while sm - blocks[j] >= K:
+            sm -= blocks[j]
+            j += 1
+            numops -= 1
+        if sm >= K and numops < ans:
+            ans = min(ans, numops + int(i % 2 == mod))
+        numops += 1
+    if ans == float('inf'): ans = len(blocks) - 1 + (1 if S[-1] == '0' else 0)
+    print(ans)
