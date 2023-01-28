@@ -1,0 +1,10 @@
+#Problem: https://www.codechef.com/problems/PRIMEREVERSE
+
+#Solution: 
+for _ in range(int(input())):
+    N = int(input())
+    S = input().count('1')
+    Sn = input().count('1')
+    if S == Sn: print("YES")
+    else: print("NO")
+    
