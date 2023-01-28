@@ -1,0 +1,29 @@
+#Problem: https://www.codechef.com/problems/XORPROD
+
+#Solution:
+import bisect
+for _ in range(int(input())):
+    mod = 998244353
+    N = int(input())
+    A = list(map(int, input().split()))
+    no = 0
+    ne = []
+    prod = 1
+    for i in range(N):
+        if A[i] == 1:
+            no += 1
+        elif A[i] % 2 == 1:
+            prod *= A[i] % mod
+        elif A[i] == 2 and no > 0:
+            prod *= 3 % mod
+            no -= 1
+        else:
+            bisect.insort(ne, A[i])
+        prod = prod % mod
+    for i in ne:
+        if no > 0:
+            no -= 1
+            prod *= (i + 1) % mod
+        else:
+            prod *= i % mod
+    print(prod % mod)
