@@ -1,0 +1,17 @@
+#Problem: https://www.codechef.com/problems/PERMUTATION
+
+#Solution:
+for _ in range(int(input())):
+    sum_ = 0
+    N = int(input())
+    A = sorted(list(map(int, input().split())))
+    flag = True
+    for i in range(1, len(A) + 1):
+        if A[i - 1] > i:
+            print('-1')
+            flag = False
+            break
+        else:
+            sum_ += i - A[i - 1]
+    if flag:
+        print(sum_)
