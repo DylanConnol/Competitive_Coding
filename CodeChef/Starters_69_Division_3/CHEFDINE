@@ -1,0 +1,22 @@
+#Problem: https://www.codechef.com/problems/CHEFDINE
+
+#Solution: 
+import bisect
+for _ in range(int(input())):
+    N, K = list(map(int, input().split()))
+    A = list(map(int, input().split()))
+    B = list(map(int, input().split()))
+    Z = sorted([(a, b) for a, b in zip(A, B)])
+    z = []
+    for i in range(N):
+        if i != 0 and Z[i - 1][0] == Z[i][0]:
+            if Z[i][1] < z[-1]:
+                z.pop()
+                z.append(Z[i][1])
+        else:
+            z.append(Z[i][1])
+    if len(z) < K:
+        print(-1)
+    else:
+        z.sort()
+        print(sum(z[:K]))
