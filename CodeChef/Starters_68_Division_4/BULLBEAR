@@ -1,0 +1,11 @@
+#Problem: https://www.codechef.com/problems/BULLBEAR
+
+#Solution: 
+for _ in range(int(input())):
+    A, B = list(map(int, input().split()))
+    if A > B:
+        print("LOSS")
+    elif A < B:
+        print("PROFIT")
+    else:
+        print("NEUTRAL")
