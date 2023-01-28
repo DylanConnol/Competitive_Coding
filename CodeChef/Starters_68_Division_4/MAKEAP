@@ -1,0 +1,9 @@
+#Problem: https://www.codechef.com/problems/MAKEAP
+
+#Solution: 
+for _ in range(int(input())):
+    A, B = list(map(int, input().split()))
+    if (A - B) % 2 == 1:
+        print(-1)
+        continue
+    print(B + (A - B)//2)
