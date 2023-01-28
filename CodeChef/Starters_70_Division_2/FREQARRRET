@@ -1,0 +1,29 @@
+#Problem: https://www.codechef.com/problems/FREQARRRET
+
+#Solution:
+from collections import defaultdict
+for _ in range(int(input())):
+    d = defaultdict(lambda: 0)
+    b = defaultdict(lambda: 0)
+    N = int(input())
+    B = list(map(int, input().split()))
+    A = []
+    z = 1
+    for i in range(N):
+        if B[i] in b:
+            if d[b[B[i]]] == 0:
+                b[B[i]] = z
+                d[z] = (B[i] - 1)
+                A.append(z)
+                z += 1
+            else:
+                d[b[B[i]]] -= 1
+                A.append(b[B[i]])
+        else:
+            b[B[i]] = z
+            d[z] = (B[i] - 1)
+            A.append(z)
+            z += 1
+    vals = [x for x in d.values() if x > 0]
+    if len(vals) != 0: print(-1); continue
+    print(*A)
