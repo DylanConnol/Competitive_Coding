@@ -1,0 +1,11 @@
+#Problem: https://www.codechef.com/problems/EXPECTEDSUM
+
+#Solution:
+for _ in range(int(input())):
+    A, B = list(map(int, input().split()))
+    N = (A + B)
+    if N % 2 == 1: P = (N//2 + 1)
+    else: P = (N//2)
+    P *= A
+    Q = (A + B)
+    print((pow(Q, -1, 998244353)*P)% 998244353)
