@@ -1,0 +1,12 @@
+#Problem: https://www.codechef.com/problems/DUMBLEDORE
+
+#Solution:
+from collections import defaultdict
+N, M = list(map(int, input().split()))
+vals = defaultdict(lambda: 0)
+ans = 0
+for i in range(M):
+    u, v = list(map(int, input().split()))
+    vals[u] += v
+    ans += vals[u]
+    print(ans)
