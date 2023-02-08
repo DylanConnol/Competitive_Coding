@@ -1,0 +1,22 @@
+#Problem: https://www.codechef.com/problems/TAKENOTLESS
+
+#Solution:
+from collections import defaultdict
+for _ in range(int(input())):
+    N = int(input())
+    A = list(map(int, input().split()))
+    mx = 0; mxn = 0;
+    storage = defaultdict(lambda: 0)
+    for i in range(N):
+        if A[i] > mx:
+            mx = A[i]; mxn = 1
+        elif A[i] == mx:
+            mxn += 1
+        storage[A[i]] += 1
+    storage = list(sorted(storage.items()))
+    for i in range(len(storage)-1,-1,-1):
+        if storage[i][1] % 2 == 1:
+            print("Marichka")
+            break
+    else:
+        print("Zenyk")
